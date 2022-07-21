@@ -1,9 +1,9 @@
 public class CreditPaymentService {
-    public double calculate(double p, double m, double s) {
-        double i = p / (12 * 100); // проценты в месяц
-        double a = Math.pow(1 + i, m); // возведение в степень
-        double k = (i * a) / (a - 1);
-        double e = s * k;
-        return e;
+    public double calculate(double persent, double month, double sum) {
+        double monthlyInterest = persent / (12 * 100); // проценты в месяц
+        double i = Math.pow(1 + monthlyInterest, month); // возведение в степень
+        double annuity = (monthlyInterest * i) / (i - 1);
+        double payment = sum * annuity;
+        return payment;
     }
 }
